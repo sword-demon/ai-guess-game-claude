@@ -1,5 +1,7 @@
 # AI 你画我猜游戏
 
+>原地址: https://github.com/tech-shrimp/ai-guess-game-claude?tab=readme-ov-file
+
 一个有趣的在线你画我猜游戏，使用 Next.js 构建，集成 Google Gemini AI 进行图像识别。
 
 ## 功能特点
