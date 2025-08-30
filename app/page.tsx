@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from 'react';
+import Image from 'next/image';
 import DrawingCanvas, { DrawingCanvasRef } from './components/DrawingCanvas';
 
 export default function Home() {
@@ -47,7 +48,7 @@ export default function Home() {
         timestamp: new Date()
       }, ...prev.slice(0, 4)]);
 
-    } catch (err) {
+    } catch {
       setError('AI识别失败，请重试');
     } finally {
       setIsLoading(false);
@@ -106,7 +107,7 @@ export default function Home() {
 
                 {!guess && !isLoading && !error && (
                   <p className="text-gray-400 text-center text-sm md:text-base px-2">
-                    在画布上画点什么，然后点击"让AI猜一猜"按钮！
+                    在画布上画点什么，然后点击&quot;让AI猜一猜&quot;按钮！
                   </p>
                 )}
               </div>
@@ -127,9 +128,11 @@ export default function Home() {
                 <div className="space-y-3 max-h-60 overflow-y-auto">
                   {gameHistory.map((record, index) => (
                     <div key={index} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                      <img 
+                      <Image 
                         src={record.image} 
                         alt="画作" 
+                        width={48}
+                        height={48}
                         className="w-10 h-10 md:w-12 md:h-12 rounded border object-cover flex-shrink-0"
                       />
                       <div className="flex-1 min-w-0">
